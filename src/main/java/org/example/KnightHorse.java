@@ -11,7 +11,7 @@ public class KnightHorse {
         int[] move = KnightHorse.moveVariants(field, i, j);
         System.out.println(KnightHorse.showField(field));
         System.out.println("---------------------------------");
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         //System.out.println(Arrays.toString(move));
         //{9,3,9,5,9,9,0,9};
         int min = 10;
