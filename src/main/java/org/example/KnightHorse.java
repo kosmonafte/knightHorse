@@ -9,8 +9,8 @@ public class KnightHorse {
         step++;
         field[i][j] = step;
         int[] move = KnightHorse.moveVariants(field, i, j);
-        System.out.println(KnightHorse.showField(field));
-        System.out.println("---------------------------------");
+        //System.out.println(KnightHorse.showField(field));
+        //System.out.println("---------------------------------");
         //Thread.sleep(1000);
         //System.out.println(Arrays.toString(move));
         //{9,3,9,5,9,9,0,9};
