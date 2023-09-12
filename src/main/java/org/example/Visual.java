@@ -3,10 +3,11 @@ package org.example;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.util.Arrays;
 
-public class Visual extends Frame implements ActionListener {
+public class Visual extends Frame implements ActionListener, MouseWheelListener {
     TextField tf1;
     TextField tf2;
 
@@ -49,6 +50,7 @@ public class Visual extends Frame implements ActionListener {
         setVisible(true);
 
         btn1.addActionListener(this);
+        btn1.addMouseWheelListener(this);
     }
 
     private void addadd(TextField[][] tf) {
@@ -58,7 +60,11 @@ public class Visual extends Frame implements ActionListener {
             }
         }
     }
-
+    @Override
+    public void mouseWheelMoved(MouseWheelEvent e) {
+        Color red = new Color(250, 41, 91);
+        this.btn1.setBackground(red);
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         Color green = new Color(125, 234, 115);
@@ -79,19 +85,19 @@ public class Visual extends Frame implements ActionListener {
         int indexi = 0;
         int indexj = 0;
         while (count < 65) {
-            for (int i = 0; i < field.length; i++) {
+            b1: for (int i = 0; i < field.length; i++) {
                 for (int j = 0; j < field[i].length; j++) {
                     if (field[i][j] == count) {
                         tf[i][j].setText(String.valueOf(field[i][j]));
                         tf[i][j].setBackground(red);
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(100);
                         } catch (InterruptedException ex) {
                              throw new RuntimeException(ex);
                         }
                         tf[i][j].setBackground(green);
                         count++;
-                        break;
+                        break b1;
                     }
                 }
             }
@@ -109,4 +115,6 @@ public class Visual extends Frame implements ActionListener {
 //            }
 //        }
     }
+
+
 }
